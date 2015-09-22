@@ -10,4 +10,4 @@ obj\debug\src\hcsr04.o: src\HCSR04.c inc/HCSR04.h \
  SPL\inc/stm32f0xx_iwdg.h SPL\inc/stm32f0xx_pwr.h SPL\inc/stm32f0xx_rcc.h \
  SPL\inc/stm32f0xx_rtc.h SPL\inc/stm32f0xx_spi.h SPL\inc/stm32f0xx_tim.h \
  SPL\inc/stm32f0xx_usart.h SPL\inc/stm32f0xx_wwdg.h \
- SPL\inc/stm32f0xx_misc.h
+ SPL\inc/stm32f0xx_misc.h inc/Debug.h

@@ -14,7 +14,7 @@
 #include "stm32f0xx_gpio.h"
 
 typedef struct {
-	float Distance;              /*!< Distance measured from sensor in centimeters */
+	uint32_t Distance;           /*!< Distance measured from sensor in centimeters */
 	GPIO_TypeDef* ECHO_GPIOx;    /*!< Pointer to GPIOx PORT for ECHO pin. Meant for private use only */
 	uint16_t ECHO_GPIO_Pin;      /*!< GPIO Pin for ECHO pin. Meant for private use only */
 	GPIO_TypeDef* TRIGGER_GPIOx; /*!< Pointer to GPIOx PORT for TRIGGER pin. Meant for private use only */

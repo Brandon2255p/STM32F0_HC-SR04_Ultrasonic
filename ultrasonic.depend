@@ -203,16 +203,17 @@
 
 1440013808 c:\users\brandon\documents\ultrasonic\inc\debug.h
 
-1442847374 source:c:\users\brandon\documents\ultrasonic\src\main.c
+1442928909 source:c:\users\brandon\documents\ultrasonic\src\main.c
 	"main.h"
 	"HCSR04.h"
 
 1417516529 c:\users\brandon\documents\ultrasonic\inc\main.h
 	"stm32f0xx.h"
 
-1442849738 source:c:\users\brandon\documents\ultrasonic\src\hcsr04.c
+1442928900 source:c:\users\brandon\documents\ultrasonic\src\hcsr04.c
 	"HCSR04.h"
+	"Debug.h"
 
-1442846861 c:\users\brandon\documents\ultrasonic\inc\hcsr04.h
+1442928390 c:\users\brandon\documents\ultrasonic\inc\hcsr04.h
 	"stm32f0xx_gpio.h"
 

@@ -41,7 +41,7 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 //uint16_t PrescalerValue = 0;
-uint8_t flagSend=0;
+uint8_t flagRise=0, flagFall=0;
 /* Private function prototypes -----------------------------------------------*/
 static void TIM_Config(void);
 
@@ -67,63 +67,25 @@ int main(void)
   ultrasonic.ECHO_GPIO_Pin = GPIO_Pin_1;
   ultrasonic.TRIGGER_GPIOx = GPIOA;
   ultrasonic.TRIGGER_GPIO_Pin = GPIO_Pin_0;
-  HCSR04_Init(ultrasonic);
+  HCSR04_Init();
   HCSR04_InitEcho();
   debugInit();
 
   debugSend("Hellow\n");
   /* Infinite loop */
-  uint32_t i;
+
+
+
+uint32_t i;
   while (1)
   {
-      if(flagSend)
-      {
-          flagSend=0;
-          debugSend("Rising Edge\n");
-      }
-      HCSR04_Trigger();
-      for(i=0; i<1000000; i++);
+    HCSR04_Read(&ultrasonic);
+    _printfLngU("Main: ", ultrasonic.Distance);
+    for(i=0; i<4000000; i++);
+
   }
 }
 
-void EXTI0_1_IRQHandler(void)
-{
-    if(EXTI_GetITStatus(EXTI_Line1) != RESET)
-  {
-    flagSend=1;
 
-    /* Clear the EXTI line 1 pending bit */
-    EXTI_ClearITPendingBit(EXTI_Line1);
-  }
-}
 
-#ifdef  USE_FULL_ASSERT
 
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t* file, uint32_t line)
-{
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-
-  /* Infinite loop */
-  while (1)
-  {
-  }
-}
-#endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
